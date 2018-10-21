@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div style="width: 200px;height: 200px; background: yellowgreen">盒子</div>    
+</body>
+<script>
+    var div =document.getElementsByTagName('div')[0];
+    //(ie中的用attachEvent) 多个事件都能触发，触发顺序与谷歌相反                   
+   div.attachEvent("onclick",function(){
+       alert(1);
+   })
+   div.attachEvent("onclick",function(){
+       alert(2);
+   })
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://baidu.com">点我会跳百度的</a>
+</body>
+<script>
+    var oA =document.getElementsByTagName('a')[0];
+    //如果事件触发用的是dom-2 下面方法仍然适用！
+    oA.onclick=function(e){
+        alert(1);
+        var shijian =  e ||  window.event;
+    // 取消默认挑战 href 是事件对象中的方法
+    e?shijian.preventDefault() : shijian.returnValue="false"
+    // shijian.preventDefault();
+    }
+    //默认是弹出1后然后跳百度
+</script>
+</html>

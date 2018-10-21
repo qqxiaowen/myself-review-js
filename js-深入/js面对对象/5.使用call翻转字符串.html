@@ -1,0 +1,12 @@
+<script>
+    var str = "abcdefghigklmn"
+    var cenct = Array.prototype.reverse.call(str.split(""))
+    console.log(cenct.join(""))
+    
+
+
+    //精简后：
+    console.log(Array.prototype.reverse.call("adjaifognifhq".split("")).join(""))
+    //如果已经把一个字符串转成了数组str.split(“”)，为不什么不直接使用reverse方法呢？
+    //要借用Array.prototype.reverse方法的原因是：数组对象是可以有自己的自有属性，如果它恰好有一个自有属性也叫reverse，则会覆盖Array.prototype.reverse
+</script>

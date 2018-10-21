@@ -1,0 +1,21 @@
+<script>
+
+    //拷贝当前对象 浅拷贝，而且尽管是后修改obj2中的值，但还是会打印出修改后的，应该是原型链的缘故
+    var obj1={
+        name:"xiaoming",
+        age:"22",
+        cad:['cad1','cad2']
+    }
+    var obj2={...obj1};
+    console.log(obj2)
+    obj2.cad.push('nihao')
+    console.log(obj2)
+    console.log(obj1)
+
+    //合并两个对象
+    console.log('-----')
+    var x1={name:"haha"}
+    var x2={age:"xixi"}
+    var x3 ={...x1,...x2}
+    console.log(x3)
+</script>

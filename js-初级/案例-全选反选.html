@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{margin: 0;padding: 0;}
+    .wrap{  width: 300px;  margin: 100px auto;  }
+    table{  border: 1px solid red;  border-collapse: collapse;
+        border-spacing: 0px;  width: 300px;
+    }
+    th,td{
+        border: 1px solid gold;  color: red;
+        padding: 10px;  text-align: center;
+    }
+    th{
+        background: skyblue;  font-weight: bold;  font-size: 16px;
+    }
+    td{  font-size: 14px;  }
+
+</style>
+<div class="wrap">
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="theadInp">
+                </th>
+                <th>菜名</th>
+                <th>饭店</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+             <tr>
+                 <td>
+                     <input type="checkbox">
+                 </td>
+                 <td>abcdefg</td>
+                 <td>Hello</td>
+             </tr>
+             <tr>
+                 <td>
+                     <input type="checkbox">
+                 </td>
+                 <td>abcdefg</td>
+                 <td>Hello</td>
+             </tr>
+             <tr>
+                 <td>
+                     <input type="checkbox">
+                 </td>
+                 <td>abcdefg</td>
+                 <td>Hello</td>
+             </tr>
+             <tr>
+                 <td>
+                     <input type="checkbox">
+                 </td>
+                 <td>abcdefg</td>
+                 <td>Hello</td>
+             </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+<script>
+    let kzInp =document.getElementById('theadInp');
+    let oTbody =document.getElementById('tbody');
+    let Inps =oTbody.getElementsByTagName('input');
+
+    kzInp.onclick = function(){
+        for(i=0; i<Inps.length; i++){
+           console.log(Inps[i].checked)
+           Inps[i].checked= !Inps[i].checked
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我弹窗</button>    
+    <button>点我解绑第二个事件</button>    
+</body>
+<script>
+    var oBtn =document.getElementsByTagName('button');
+
+    //定义一个事件
+    function shijian(){
+        alert("2222");
+    }
+    oBtn[0].attachEvent("onclick",shijian);
+    oBtn[0].attachEvent("onclick",function(){
+       alert("11111");
+   })
+   oBtn[1].onclick =function(){
+       oBtn[0].detachEvent("onclick",shijian);
+   }
+</script>
+</html>

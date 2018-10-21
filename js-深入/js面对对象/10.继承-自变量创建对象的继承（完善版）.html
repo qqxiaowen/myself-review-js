@@ -1,0 +1,51 @@
+<script>
+    var daMing ={
+        name:"daming",
+        friends:["xiaosan","xiaoming"],
+        card:{
+            ka1: "ka1",
+            ka2: "ka2"
+        },
+        say:function(){
+            console.log(`我是${this.name},啦啦啦`)
+        }
+    }
+    // 编写一个继承函数
+    function kaobei(oldobj){
+        // 判断传过来参数的类型，是数组的话定义成[]，保持类型一致
+        // 若不判断，复制的friends是{}
+        var newobj=Array.isArray(oldobj) ? [] :{}
+        for(x in oldobj){
+            // 判断传过来的对象的属性值是否是引用数据类型，是的话，让引用数据类型再去调用继承函数。
+            if(typeof oldobj[x] === "object"){
+                newobj[x] =kaobei(oldobj[x])
+            }else{
+                newobj[x] = oldobj[x]
+            }
+            
+        }
+        return newobj;
+    }
+    
+    console.log(daMing)
+    // 定义个一个xiaoMing 去继承daMing
+    var xiaoMing = kaobei(daMing)
+    console.log(xiaoMing)
+    console.log("------")
+    
+    // 现在再去改变daMing中的firends，xiaoMing中的不会变了
+    xiaoMing.name="xiaoming"
+    xiaoMing.friends.push("zzzz")
+    console.log(daMing)
+    console.log(xiaoMing)
+    console.log("------")
+    // 改变xiaoMing中的方法，daMing中的方法也不会变
+    daMing.say();
+    xiaoMing.say();
+    xiaoMing.say=function(){
+        console.log("你猜我是谁")
+    }
+    console.log("+++++++")
+    daMing.say();
+    xiaoMing.say();
+    </script>

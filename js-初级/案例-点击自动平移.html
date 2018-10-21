@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #list{
+        position: absolute; top: 100px; left:400px; 
+        width: 100px; height: 100px; line-height: 100px; text-align: center; background: yellowgreen;
+    }
+</style>
+<body>
+    <button>向左</button>    
+    <button>向右</button>    
+    <button>向上</button>    
+    <button>向下</button>    
+    <button>停！！</button>
+    <div id="list">hello</div>
+</body>
+<script>
+    let oBtn =document.getElementsByTagName('button');
+    let oDiv = document.getElementById('list');
+    let time =null;
+
+    oBtn[0].onclick=()=>{
+        // oDiv.style.left= "70px"
+        // console.log(oDiv.style.left)
+        // console.log(oDiv.offsetLeft)
+        //先要清空定时器
+        clearInterval(time);
+        oDiv.style.background = "red"
+        time=setInterval( function(){
+        oDiv.style.left=oDiv.offsetLeft-5+"px"            
+        },100)
+    }
+    oBtn[1].onclick=()=>{
+        //先要清空定时器
+        clearInterval(time);
+        oDiv.style.background = "green"
+        
+        time=setInterval( function(){
+        oDiv.style.left=oDiv.offsetLeft+5+"px"            
+        },100)
+    }
+    oBtn[2].onclick=()=>{
+        clearInterval(time);
+        oDiv.style.background = "blue"
+
+        time=setInterval( function(){
+        oDiv.style.top=oDiv.offsetTop-5+"px"            
+        },100)
+    }
+    oBtn[3].onclick=()=>{
+        clearInterval(time);
+        oDiv.style.background = "#666666"
+
+        time=setInterval( function(){
+        oDiv.style.top=oDiv.offsetTop+5+"px"            
+        },100)
+    }
+    oBtn[4].onclick=()=>{
+        clearInterval(time);
+    }
+</script>
+</html>

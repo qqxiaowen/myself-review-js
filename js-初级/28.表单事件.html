@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <input type="text">
+        <input type="submit" name="" id="">
+    </form>    
+</body>
+<script>
+    let Tab1 = document.getElementsByTagName('form')[0];
+    let inp = document.getElementsByTagName('input');
+    //提交事件submit 事件源是tbale！！！
+    console.log(Tab1)
+    Tab1.onsubmit = ()=>console.log("我是提交事件");
+    //change事件，内容发生变化并且失去焦点时用
+    inp[0].onchange=()=>console.log("我是change事件")
+    //input 事件，内容发生变化时用
+    inp[0].oninput=()=>console.log("我是input事件")
+
+</script>
+</html>

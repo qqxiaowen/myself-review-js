@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        list-style: none;
+        line-height: 40px;
+        margin-bottom: 10px;
+        background-color: yellowgreen;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <form action="#">
+        <input type="text" name="" id="add" placeholder="输入要添加的内容">
+        <button>点击添加</button>
+    <br />
+    </form>
+    <form action="">
+        <input type="text" name="" id="del" placeholder="输入要删除的行数">
+        <button>点击删除</button>
+    </form>
+    <hr>
+    <ul id="list">
+    </ul>
+</body>
+<script>
+    let textAdd = document.getElementsByTagName('input')[0];
+    let textDel = document.getElementsByTagName('input')[1];
+    let obnAdd = document.getElementsByTagName('button')[0];
+    let obnDel = document.getElementsByTagName('button')[1];
+    let oUl = document.getElementById('list');
+    let oLi = document.getElementsByTagName('li');
+
+    // obnAdd.onclick = function (){
+
+    //         oUl.innerHTML+="<li>"+textAdd.value+"</li>"
+    // }
+
+    obnAdd.onclick = function () {
+        if (textAdd.value) {
+            let oLi = document.createElement("li");
+            oLi.innerHTML = textAdd.value;
+            oUl.appendChild(oLi);
+            textAdd.value = "";
+        } else {
+            alert("清输入要添加的内容")
+        }
+    }
+    obnDel.onclick = function () {
+        if (textDel.value) {
+            let num = 0;
+            num = textDel.value;
+            if (num <= oLi.length) {
+                oUl.removeChild(oLi[num - 1]);
+                textDel.value = "";
+            } else { alert("输入的行数过大，请输入正确的行数"); textDel.value = ""; }
+        } else {
+            alert("请输入要删除的行数")
+        }
+    }
+</script>

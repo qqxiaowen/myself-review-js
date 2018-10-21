@@ -1,0 +1,18 @@
+<script type="text/javascript">
+
+var obj ={
+    abc:"xxxx"
+}
+console.log(obj.abc) // 不设置，默认是undefined
+//设置格式  Object.defineProperty(对象名，“属性名”,{内容})
+// value 设置属性的值，一旦设置，以后无法修改
+Object.defineProperty(obj,"abc",{
+    value:"你好"
+})
+console.log(obj.abc)
+obj.abc ="123"
+console.log(obj.abc)
+
+delete obj.abc
+console.log(obj.abc)
+</script>

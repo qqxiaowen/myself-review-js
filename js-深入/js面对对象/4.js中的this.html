@@ -1,0 +1,16 @@
+<script>
+    //到处都有this
+    console.log(this)
+    function f(){ console.log(this)}
+    f()
+    var obj ={
+        say: function(){
+            console.log(this)
+        }
+    }
+    console.log("...........")
+    //this的值随时可能改变，只有在调用时才能确定
+    obj.say()
+    f.call(obj)
+    //不能手动修改this的值
+</script>

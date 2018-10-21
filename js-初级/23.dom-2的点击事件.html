@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div style="width: 200px;height: 200px; background: yellowgreen">盒子</div>    
+</body>
+<script>
+    let oDiv =document.getElementsByTagName('div')[0];
+    // // dom-1中的点击，最后的点击事件会把前面的点击事件给覆盖掉
+    // //第一个点击
+    // oDiv.onclick= ()=>{
+    //     alert(1)
+    // }
+    // //第二个点击
+    // oDiv.onclick= ()=>{
+    //     alert(2)
+    // }
+    
+    //dom-2中的点击事件 点击事件都会发生，书写在前面的点击事件先发生
+    //(ie中的用attachEvent)
+    //第一个点击
+    oDiv.addEventListener("click",function(){
+        alert(1)
+    })
+    oDiv.addEventListener("click",()=>{
+        alert(2)
+    })
+    //第二个点击
+</script>
+</html>

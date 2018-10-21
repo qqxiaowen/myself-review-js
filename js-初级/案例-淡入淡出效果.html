@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #list{ opacity: 0.5; width: 300px; height: 300px; text-align: center;line-height: 300px; background: yellowgreen;}
+</style>
+<body>
+    <div id="list">
+        hello!
+    </div>
+    <button>淡入</button>
+    <button>淡出</button>
+</body>
+<script>
+    let oDiv =document.getElementById('list');
+    let oBtn =document.getElementsByTagName('button');
+    let time =null;
+    oBtn[0].onclick=function(){
+        oDiv.style.opacity=1;
+        time =setInterval( function(){
+            oDiv.style.opacity-=0.05
+            console.log(oDiv.style.opacity)
+            if(oDiv.style.opacity<=0){
+                clearInterval(time);
+            }
+        },50)
+    }
+    // oBtn[1].onclick=function(){
+    //     oDiv.style.opacity=0;
+    //     let num= 0;
+    //     time = setInterval(function(){
+    //         num+=0.05;
+    //         console.log("num:::"+num);
+    //         oDiv.style.opacity=num;
+    //         console.log(oDiv.style.opacity)
+    //         if(oDiv.style.opacity>=1){
+    //             clearInterval(time);
+    //         }
+    //     },50)
+    // }
+
+
+    oBtn[1].onclick=function(){
+        oDiv.style.opacity=0;
+        console.log("第一次："+oDiv.style.opacity);
+        oDiv.style.opacity=oDiv.style.opacity+0.5;
+        console.log("第二次："+oDiv.style.opacity);
+        oDiv.style.opacity=oDiv.style.opacity+0.2;
+        console.log("第三次："+oDiv.style.opacity);
+        oDiv.style.opacity=oDiv.style.opacity+0.1;
+        console.log("第四次："+oDiv.style.opacity);
+        // time = setInterval(function(){
+        //     console.log(oDiv.style.opacity);
+        //     oDiv.style.opacity=oDiv.style.opacity+0.05;
+        //     if(oDiv.style.opacity>=1){
+        //         clearInterval(time);
+        //     }
+        // },50)
+    }
+    // console.log(oDiv.style.opacity)
+    // console.log(typeof oDiv.style.opacity)
+</script>
+</html>

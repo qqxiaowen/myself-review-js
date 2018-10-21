@@ -1,0 +1,33 @@
+<script>
+    // 不使用class创建类
+    function NBACreate(name, age ,height){
+        this.name = name,
+        this.age =age,
+        this.height =height;
+    }
+    NBACreate.prototype.say =function(){
+        console.log(`我是${this.name},今年${this.age}岁了。`)
+    }
+
+    var x1 =new NBACreate("小明","22","171")
+    console.log(x1)
+    x1.say();
+    console.log("----------")
+
+    // 使用class
+    class NBACreate2{
+        //class 中的属性要写入constructor中
+        constructor(name,age,height){
+            this.name =name,
+            this.age =age,
+            this.height =height;
+        }
+        say(){
+            console.log(`我是${this.name},今年${this.age}岁了。`)
+        }
+    }
+
+    var y1 =new NBACreate2("大明","27","187")
+    console.log(y1);
+    y1.say();
+</script>

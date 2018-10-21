@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>div盒子</div>
+    <a href="#">a超链接</a>
+</body>
+<script>
+    let oDiv =document.getElementsByTagName('div')[0];
+    let oA =document.getElementsByTagName('a')[0];
+    console.log(getComputedStyle(oDiv));
+    console.log(getComputedStyle(oDiv).fontSize)
+</script>
+</html>

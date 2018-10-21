@@ -1,0 +1,533 @@
+## 走进Es6
+> **ES6**（又名 ES2105）是 JavaScript 语言的新标准，2015 年 6 月正式发布后，得到了迅速推广，是目前业界超级活跃的计算机语言。
+
+> 《ES6标准入门（第2版）》为中级难度，适合对 JavaScript 语言或 ES5 已经有所了解的读者，用来提高水平，了解这门语言的最新发展；也可当作参考手册，查寻 ES6/ES7 新增的语法点
+
+## 一.var，let与const
+> 在ES6中新增了let，与const的声明方式
+
+> let类似于var，但是使用let声明变量，**所声明的变量不会提升**，而且let可以**划分块级作用域**
+
+#### 1.1 let声明的变量不会提升：
+``` js
+    console.log(a) //undefined
+    var a=110;
+    console.log(b)
+    let b=120 // not defined
+```
+
+运行见下图：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/1652888e46703ed4?w=414&h=136&f=png&s=10684)
+#### 1.2 let划分块级作用域：
+``` js
+    if(true){var a=11}
+    console.log(a) // 11
+    if(true){let b=22}
+    console.log(b) // not define
+```
+运行见下图：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/1652891292857108?w=379&h=98&f=png&s=5820)
+>总所周知，在js中，if是不能划分异步代码的，但是let所在的{}中，却划分了块级作用域
+### 2.用const来声明常量，声明常量时必须赋值，常量不可修改
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/165289bed91b827e?w=915&h=192&f=png&s=23994)
+``` js
+    const PI =3.14
+    console.log(PI)
+    PI =77
+    console.log(PI)
+``` 
+运行见下图：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/165289dab412a083?w=486&h=94&f=png&s=6881)
+
+## 二.数组的解构赋值
+> 从数组和对象中提取值，对变量进行赋值，这称为解构赋值
+### ES6之前为变量赋值:
+
+``` js
+    var a=1;
+    var b=2;
+    var c=3;
+    console.log(a,b,c) // 1,2,3
+``` 
+### 使用解构赋值：
+
+``` js
+    var [a,b,c] =[1,2,3]
+    console.log(a,b,c) // 1,2,3
+``` 
+### 解构赋值还可以添加默认值，以右边为主，右边没有再看左边
+
+``` js
+    var [a,b,c,d=7]=[1,2,3]
+    var [aa=1,bb=1,cc=1,dd=7]=[1,2,3,9]
+
+    console.log(a,b,c,d) //1 2 3 7 成功设置了d的默认值7。
+    console.log(aa,bb,cc,dd) //1 2 3 9 虽然各个变量都有自己的默认值，但是解构赋值右边有数值，以右边的为主。
+``` 
+## 三.数组中新增的方法
+### 3.1扩展运算符
+> ES6中新增了扩展运算符"..."，主要作用为：合并数组，复制数组，将字符串或类数组转为真数组。
+
+#### 3.1.1 扩展运算符--合并数组：
+``` js
+    var arra=[1,2]
+    var arrb=[6,7]
+    var arrab=[...arra,...arrb]
+    console.log(arrab)
+``` 
+运行见下图：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/16528e77ecc0c867?w=319&h=62&f=png&s=5847)
+#### 3.1.2 扩展运算符--复制数组：
+``` js
+    var arr1=[1,2,3,4]
+    var arr2=[...arr1]
+
+    console.log(arr2) // [ 1, 2, 3, 4 ]
+    arr1[0] = 99
+    console.log(arr1) // [ 99, 2, 3, 4 ]
+    console.log(arr2) // [ 1, 2, 3, 4 ]
+``` 
+#### 3.1.3 扩展运算符--将字符串或类数组转为真数组:
+``` js
+    var str ="nihao" 
+    var sp=[...str]
+    console.log(sp) // [ 'n', 'i', 'h', 'a', 'o' ]
+``` 
+### 3.2 map
+> 逐一处理原数组的元素，并返回一个新数组
+
+``` js
+    var arr = [1,2,3]
+    var map = arr.map (function(item,index,arr){
+        item+=100;
+        return item
+    })
+    console.log(arr) //[ 1, 2, 3 ]
+    console.log(map2) //[ 101, 102, 103 ]
+``` 
+> .map (function(item,index,arr), 其中形参item,index,arr 分别代表这元素，索引，数组
+
+### 3.3 Array.from
+> Array.from 可以将类数组转化为真数组
+
+``` html
+    <div></div>
+    <script>
+        var lis = document.getElementsByTagName("div");
+        console.log(Array.isArray(lis)); //打印值是false
+    
+        var  xx =Array.from(lis);
+        console.log(Array.isArray(xx)) // true
+        console.log(Array.isArray(lis)); //打印值仍是false
+       //对原类数组无影响
+    </script>
+``` 
+
+### 3.4 join()
+> 将数组变成字符串
+
+``` js
+    var arr1= [1,2,3,4];
+    var sr =arr1.join();
+    console.log(sr) // 1,2,3,4
+    console.log(typeof sr) // string
+    console.log(typeof arr1) // object
+``` 
+
+### 3.5 reverse()
+> 将数组翻转，会影响原来的数组
+
+``` js
+    var arr=[1,"a","b",2];
+    var lz = arr.reverse();
+    console.log(lz) // [ 2, 'b', 'a', 1 ]
+    console.log(arr) // [ 2, 'b', 'a', 1 ]
+``` 
+### 3.6 slice()
+> 截取数组中的一段元素，生成新数组,对原数组无影响
+
+``` js
+    var arr=[1,2,3,4,5,6,7]
+    var sc = arr.slice(0,4)
+    console.log(arr) // [ 1, 2, 3, 4, 5, 6, 7 ]
+    console.log(sc) // [ 1, 2, 3, 4 ]
+``` 
+
+> slice() 中的形参是左闭右开区间
+ 
+### 3.7 filter()
+> 过滤数组中符合条件的元素
+
+``` js
+    var arr= [1,2,3,4,5]
+    var filter = arr.filter(function(item){
+        return item<3;
+    })
+    console.log(filter) // [ 1, 2 ]
+``` 
+> filter 中的形参 item 表示数组中的元素，会过滤出符合条件的元素，不影响原数组。
+
+### 3.8 Array.of()
+> 创建数组,将一组值转为数组,对原来的值无影响。
+
+``` js
+// 创建数组
+    var arr1=Array.of(3)
+    var arr2=Array.of("3");
+    console.log(arr1, typeof arr1) // [ 3 ] 'object'
+    console.log(arr2, typeof arr2) //[ '3' ] 'object'
+
+// 转为数组
+    var xx= 1;
+    var newxx=Array.of(xx);
+    console.log(xx, typeof xx); // 1 'number'
+    console.log(newxx, typeof newxx); // [ 1 ] 'object'
+``` 
+###  3.9 fill()
+> 给数组填充制定值
+
+``` js
+    let arr =new Array(5);
+    arr.fill("!!");
+    console.log(arr) // [ '!!', '!!', '!!', '!!', '!!' ]
+
+//fill方法会覆盖之前的元素
+    let arr1= [1,2,3,45,6,7]
+    arr1.fill("你好")
+    console.log(arr1) // [ '你好', '你好', '你好', '你好', '你好', '你好' ]
+
+//制定填充的位置 左闭右开区间
+    let arr2 =new Array(7);
+    arr2.fill("!",0,2)
+    console.log(arr2) // [ '!', '!', <5 empty items> ]
+``` 
+### 3.10 indexOf()
+> 返回制定元素在数组中首次出现的位置
+
+``` js
+    var arr=[3,3,3,3,"xxx","???",7]
+
+    console.log(arr.indexOf(9)) // -1
+    console.log(arr.indexOf(3)) // 0
+    console.log(arr.indexOf("xxx")) // 4
+``` 
+> 返回的是指定的字符串值在字符串中首次出现的位置（数组中的索引）没有则返回-1
+
+## 四.箭头函数
+> 箭头函数相当于匿名函数，并且简化了函数定义。
+
+> 箭头函数写法 function(){} 变为 ()=>
+
+### 4.1 箭头函数书写举例：
+
+``` js
+    var a =""
+    var f= (x)=>{
+        a =x
+        console.log(a)
+    }
+    f(1)  // 1
+```
+### 若形参只有一个，则可以省略形参左右的()
+``` js
+    var a =""
+    var f= x=>{
+        a =x
+        console.log(a)
+    }
+    f(1)  // 1
+```
+> 如果没有形参，则必须加()
+
+### 若箭头函数函数体里只有一句语句，则可以省略{}，如下：
+``` js
+    var f=()=>console.log("你好")
+    f() // 你好
+```
+## 5.字符串模板
+> 使用ES6中新增的字符串模板，可以更加使书写代码变的更为方便，如下：
+
+``` js
+//传统字符串拼接
+var name = '豆豆';
+var age = 6;
+console.log(name+"今年已经"+age+"岁啦")
+
+// 字符模板的写法
+console.log(`${name}今年已经${age}岁了`)
+```
+> 使用键盘“Esc”下面的反引号将内容包括，用${}将变量包括。
+
+## 6.class相关知识
+> 在之前的ES5中，我们常常使用**构造器的方法**去实现一个类的功能，现在我们在ES6中可以直接使用**class**去创建类
+
+### 6.1 先看一下使用构造器实现类：
+
+``` js
+function NBACreate(name, age ,height){
+        this.name = name,
+        this.age =age,
+        this.height =height;
+    }
+    NBACreate.prototype.say =function(){
+        console.log(`我是${this.name},今年${this.age}岁了。`)
+    }
+
+    var x1 =new NBACreate("小明","22","171")
+    console.log(x1)
+    x1.say();
+```
+运行如下：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/165295cd62eecd2f?w=446&h=52&f=png&s=5455)
+### 6.2使用class创建类：
+
+``` js
+class NBACreate2{
+        //class 中的属性要写入constructor中
+        constructor(name,age,height){
+            this.name =name,
+            this.age =age,
+            this.height =height;
+        }
+        say(){
+            console.log(`我是${this.name},今年${this.age}岁了。`)
+        }
+    }
+
+    var y1 =new NBACreate2("大明","27","187")
+    console.log(y1);
+    y1.say();
+```
+运行如下：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/165295ddc5e826f3?w=437&h=60&f=png&s=5710)
+### 6.3 class中还可以使用static编写静态方法
+
+``` js
+class abc{
+    constructor(a,b){
+        this.name =a;
+        this.age =b
+    }
+    say(){
+        return console.log("你好")
+    }
+    static nicai(){
+        return  console.log("我是静态方法")
+    }
+}
+var x1 = new abc("wangcai","7");
+console.log(x1)
+x1.say();
+// 调用静态方法，只能用方法名.静态方法
+abc.nicai();
+```
+运行如下：
+![](https://user-gold-cdn.xitu.io/2018/8/11/16529611db52ac62?w=446&h=110&f=png&s=10808)
+
+### 6.4 class中可以通过extends继承类
+
+``` js
+class NBACreate2 {
+        //class 中的属性要写入constructor中
+        constructor(name, age, height) {
+            this.name = name,
+                this.age = age,
+                this.height = height;
+        }
+        say() {
+            console.log(`我是${this.name},今年${this.age}岁了。`)
+        }
+    }
+
+    class MVP extends NBACreate2 {
+        constructor(name, age, height, year) {
+            //使用super借用NBACreate2
+            super(name, age, height)
+            this.year = year
+        }
+        sayMVp(){
+            console.log(`我是${this.name},我是${this.year}的mvp`)
+        }
+    }
+    
+    var y1 = new MVP("大明", "27", "187",18)
+    console.log(y1);
+    y1.say();
+    y1.sayMVp();
+```
+运行如下：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/1652963808108b1a?w=532&h=88&f=png&s=7796)
+## 7.字符串扩展
+### 7.1 trim()
+> 使用trim可以去除字符串的空格
+
+``` js
+    var str= "  a  b  c  "
+    var str2 ="xx"
+    console.log(str,str2)
+ // trim 左右空格都去掉
+    console.log(str.trim(),str2)
+
+//trimLeft 左边空格去掉
+    console.log(str.trimLeft(),str2)
+    
+//trimRight  右空格去掉
+    console.log(str.trimRight(),str2)
+```
+运行如下：
+
+![](https://user-gold-cdn.xitu.io/2018/8/11/165296bad39fd0fe?w=209&h=130&f=png&s=3187)
+
+### 7.2 repeat()
+> repeat可以**复制指定份数**的字符串并返回
+
+``` js
+    var str="你好+ "
+    console.log(str.repeat(10))
+```
+运行如下：
+![](https://user-gold-cdn.xitu.io/2018/8/11/165296d1ecf929ff?w=421&h=88&f=png&s=14072)
+> repea 中的参数就是所要复制的份数
+
+### 7.3 includes() 与 startsWith()
+> .includes 可以判断字符串中是否有其中的值，有的话返回**true**，无则返回**false**
+
+> startsWith()和 includes()的作用类似，不同的是includes() 可以从字符串的**任意位置**开始检索，startsWith() 只能从字符串的**首位置**开始检索
+
+#### 7.3.1 includes()
+``` js
+    var str= " abc de"
+    console.log(str.includes("a")) // true
+    console.log(str.includes(" ab")) // true
+    console.log(str.includes("c d")) // true
+    console.log(str.includes("c dxx")) // false
+``` 
+#### 7.3.2 startsWith()
+``` js
+    var str= "abc de"
+    console.log(str.startsWith("a")) // true
+    console.log(str.startsWith("ab")) // true
+    console.log(str.startsWith("bc")) // false 此处若用includes()方法，则返回true
+    console.log(str.startsWith("dexx")) // false
+``` 
+### 7.4 padStart(), padEnd()
+> padStart() 和 padEnd() 的作用都是**填充字符串**直至字符串长度达到设置值，不同的是 padStart() 是从**首部**开始填充，而 padEnd() 是从**尾部**开始填充
+
+``` js
+    var str="你好"
+    console.log(str.padStart(9,"hi"))
+    console.log(str.padEnd(9,"沙"))
+``` 
+运行如下：
+![](https://user-gold-cdn.xitu.io/2018/8/12/1652c2438c610793?w=246&h=75&f=png&s=5947)
+## 8. 对象中新增的方法
+### 8.1 getOwnPropertyDescriptor()
+> getOwnPropertyDescriptor() 方法可以**获取一个对象中某个属性的详细信息**
+
+``` html
+<script>
+    var a=1;
+    console.log(Object.getOwnPropertyDescriptor(window,"a"))
+</script>
+``` 
+运行如下：
+![](https://user-gold-cdn.xitu.io/2018/8/12/1652c29075dddf75)
+### 8.2 Object.defineProperty()
+> Object.defineProperty() 精细化设置一个对象的属性,其中包含属性**是否可以删除**，**是否可以修改此属性**，**是否可以枚举**，和**设置属性的值**四部分组成
+
+> Object.defineProperty() 的**设置格式**： Object.defineProperty(对象名，“属性名”,{内容})
+
+#### 8.2.1 configurable
+> configurable 设置属性是否可以删除，默认是ture（可以删除）
+
+``` js
+    var obj ={abc:"123"}
+    Object.defineProperty(obj,"abc",{
+        configurable:false
+    })
+    delete obj.abc;
+    console.log(obj.abc) // 123
+``` 
+> 因为设置了 configurable:false 即使删除abc也删除不了。
+
+#### 8.2.2 writable
+> writable 设置属性是否可以修改，默认值是ture（可以修改）
+
+``` js
+    var obj = {name : "豆豆"}
+    console.log(obj.name) 
+    obj.name="旺财"
+    console.log(obj.name)
+    Object.defineProperty(obj,"name",{
+        writable:false
+    })
+    obj.name="贝贝"
+    console.log(obj.name)
+``` 
+运行如下：
+
+![](https://user-gold-cdn.xitu.io/2018/8/12/1652c3671c0218a9?w=83&h=102&f=png&s=2235)
+> obj.name初始值是“豆豆”,此时可以成功将于修改打印“旺财”，一但设置了 writable:false 则修改无效。
+
+#### 8.2.3 enumerable
+>  enumerable 设置属性是否可以枚举，默认是ture（可以枚举）
+
+``` js
+    var obj = {
+        a: "1",
+        b: "2",
+        c: "3"
+    }
+    for( var item in obj){
+        console.log(item)
+    }
+    Object.defineProperty(obj,"a",{
+        enumerable:false
+    })
+    // 分割线
+    console.log("----------------")
+    for( item in obj){
+        console.log(item)
+    }
+``` 
+运行如下：
+![](https://user-gold-cdn.xitu.io/2018/8/12/1652c3b351ebef93?w=244&h=202&f=png&s=3596)
+> 在未设置 enumerable:false 时，可以枚举obj中的a属性，设置 enumerable 后，无法枚举a属性。
+
+#### 8.2.4 value 
+> value 设置属性的值，一旦设置就无法再修改这个属性
+
+``` js
+    var obj ={}
+    console.log(obj.abc)
+    Object.defineProperty(obj,"abc",{
+        value:"你好"
+    })
+    console.log(obj.abc)
+    obj.abc ="22"
+    console.log(obj.abc)
+``` 
+运行如下：
+
+![](https://user-gold-cdn.xitu.io/2018/8/12/1652c87eebdbe49b?w=163&h=105&f=png&s=2355)
+> value 区别于 writable:false
+
+``` js
+
+``` 
+
+``` js
+
+``` 
+
+``` js
+
+``` 

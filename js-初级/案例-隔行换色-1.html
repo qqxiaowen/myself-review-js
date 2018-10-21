@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    *{padding: 0; margin: 0;}
+    ul{ padding-top: 50px;}
+    li{
+        margin-top: 10px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <ul>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+        <li>请问而他与uioasd</li>
+    </ul>
+</body>
+<script>
+    let oLi = document.getElementsByTagName('li');
+
+    for(let i=0; i<oLi.length;i++){
+        console.log(i)
+        if(i%2==0){
+            oLi[i].style.background ="yellowgreen";
+            // oLi[i].style.display ="none"
+            console.log("偶数行")
+        }
+    }
+</script>
+</html>

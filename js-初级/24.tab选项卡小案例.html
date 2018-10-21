@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{ padding: 0; margin: 0; list-style: none;}
+    .bigbox{ width: 500px; height: 500px; margin: 50px auto;}
+    #list{ height: 50px;}
+    #list li { text-align: center; width: 20%; float: left; height: 46px; line-height: 50px; border-bottom: 4px solid transparent; background-color: skyblue;}
+    .bigbox div{ display: none; height: 450px; text-align: center; line-height: 450px; font-size: 30px; background-color: yellowgreen;}
+    #list .li_ys{ border-color: red;}
+    .bigbox .div_ys{ display: block;}
+</style>
+<body>
+    <div id="bigbox" class="bigbox">
+        <ul id="list">
+            <li class="li_ys">选项一</li>
+            <li>选项二</li>
+            <li>选项三</li>
+            <li>选项四</li>
+            <li>选项五</li>
+        </ul>
+        <div class="div_ys" >我是选项一里的内容，啦啦啦。</div>
+        <div >我是选项二里的内容，啦啦啦。</div>
+        <div >我是选项三里的内容，啦啦啦。</div>
+        <div >我是选项四里的内容，啦啦啦。</div>
+        <div >我是选项五里的内容，啦啦啦。</div>
+    </div>    
+</body>
+<script>
+    let Bigbox = document.getElementById('bigbox')
+    let oUl =document.getElementById("list");
+    let oLi = oUl.getElementsByTagName('li');
+    let oDiv = Bigbox.getElementsByTagName('div');
+
+    for(var i=0; i<oDiv.length;i++){
+        oLi[i].index=i;
+        oLi[i].onclick=function(){
+            //清空原有样式
+            for(var j=0; j<oDiv.length;j++){
+                oLi[j].className="";
+                oDiv[j].className="";
+            }
+            //重新定义样式
+            this.className="li_ys";
+            // console.log("打印this.index的值："+this.index)
+            oDiv[this.index].className="div_ys";
+            // console.log("打印i的值："+i);
+            console.log("在事件中打印for循环中的i值:"+i)
+        }
+
+        // console.log(i);
+    }
+    </script>
+</html>

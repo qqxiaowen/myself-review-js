@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="item">
+</body>
+<script>
+    let oBtn = document.getElementById('item');
+    oBtn.onkeydown=()=>console.log("我是键盘按下事件")
+    // oBtn.onkeyup=()=>console.log("我是键盘抬起事件"),这个事件不能过得中文输入法下的输入，还不能获取功能键（eg：del）的输入
+    oBtn.onkeypress=()=>console.log("我是键盘按下+抬起事件！！")
+</script>
+</html>

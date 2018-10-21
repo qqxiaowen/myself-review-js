@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //这两个事件都很难捕获到
+    //即将关闭事件
+    window.onbeforeunload=function(){
+        alert("我马上要关闭啦！")
+    }
+
+    //关闭事件
+    window.onunload=function(){
+        alert("我关闭啦！！！")
+    }
+
+</script>
+</html>

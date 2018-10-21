@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    .list{
+        width: 500px;
+        height: 500px;
+        background: #666666;
+    }
+</style>
+<body>
+<h1><a href="#">我是标题里的超链接</a></h1>   
+<div></div> 
+</body>
+<script>
+    let oH1 =document.getElementsByTagName('h1')[0];
+    let oA = document.getElementsByTagName('a')[0];
+    let oDiv =document.getElementsByTagName('div')[0];
+    oA.onclick = ()=>{
+        oH1.style.background="yellow";
+        oH1.style.fontSize="40px";
+        oH1.style.color="blue";
+        oDiv.className="list";
+    }
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{padding:0; margin: 0; list-style: none;}
+    ul{overflow: hidden; margin: 50px 0 0 20px;}
+    li{float: left;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./img/rank_1.gif" alt=""></li>
+        <li><img src="./img/rank_2.gif" alt=""></li>
+        <li><img src="./img/rank_1.gif" alt=""></li>
+        <li><img src="./img/rank_2.gif" alt=""></li>
+        <li><img src="./img/rank_1.gif" alt=""></li>
+        <li><img src="./img/rank_2.gif" alt=""></li>
+        <li><img src="./img/rank_1.gif" alt=""></li>
+        <li><img src="./img/rank_2.gif" alt=""></li>
+        <li><img src="./img/rank_3.gif" alt=""></li>
+        <li><img src="./img/rank_4.gif" alt=""></li>
+        <li><img src="./img/rank_3.gif" alt=""></li>
+        <li><img src="./img/rank_4.gif" alt=""></li>
+        <li><img src="./img/rank_3.gif" alt=""></li>
+        <li><img src="./img/rank_4.gif" alt=""></li>
+        <li><img src="./img/rank_3.gif" alt=""></li>
+        <li><img src="./img/rank_4.gif" alt=""></li>
+        <li><img src="./img/rank_3.gif" alt=""></li>
+        <li><img src="./img/rank_4.gif" alt=""></li>
+        <li><img src="./img/rank_3.gif" alt=""></li>
+        <li><img src="./img/rank_4.gif" alt=""></li>
+    </ul>
+</body>
+<script>
+    var oImg =document.getElementsByTagName('img');
+    for(var i=0;i<oImg.length; i++){
+        oImg[i].index = i;
+        oImg[i].onmouseover=function(){
+            //鼠标之前的img
+            for(var j=0;j<=this.index;j++){
+                oImg[j].src= oImg[j].src.replace("rank_3","rank_1");
+                oImg[j].src= oImg[j].src.replace("rank_4","rank_2");
+                // oImg[0].src="rank1";
+
+            }
+            //鼠标之后的img
+            for(var k=this.index+1; k<oImg.length; k++){
+                oImg[k].src= oImg[k].src.replace("rank_1","rank_3");
+                oImg[k].src= oImg[k].src.replace("rank_2","rank_4");
+            }
+        }
+    }
+</script>
+</html>

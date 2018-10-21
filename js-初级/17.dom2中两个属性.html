@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://baidu.com" abc="abc" id="item">点我跳转</a>
+</body>
+<script>
+    let oA =document.getElementById('item');
+    //使用dom-0 无法得到自定义属性abc
+    console.log("href:"+oA.href,"id:"+oA.id,"abc:"+oA.abc);
+    //使用dom-1
+    console.log(oA.getAttribute("href"));
+    console.log(oA.getAttribute("id"));
+    console.log(oA.getAttribute("abc"));
+    //使用dom-1 中的 setAtteibute方法去设置元素中的属性
+    oA.setAttribute("abc","???")
+    console.log(oA.getAttribute("abc"));
+</script>
+</html>

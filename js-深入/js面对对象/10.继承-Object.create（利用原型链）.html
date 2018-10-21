@@ -1,0 +1,22 @@
+<script>
+    //首先创建一个构造器
+    function NBACreate(name, age ,height){
+        this.name = name,
+        this.age =age,
+        this.height =height;
+    }
+    NBACreate.prototype.say =function(){
+        console.log(`我是${this.name},今年${this.age}岁了。`)
+    }
+
+    var x1 =new NBACreate("小明","22","171")
+    console.log(x1)
+    x1.say();
+    console.log("----------")
+
+    //
+    var x2 =Object.create(x1);
+    x2.name="大明"
+    console.log(x2);
+    x2.say();
+</script>

@@ -1,0 +1,31 @@
+<script>
+    var obj={
+        name: "zzz",
+        age:"11",
+        tel:"13131313"
+    }
+    //preventExtensions() 不允许新增，但是可以修改，也可以删除
+    // Object.preventExtensions(obj)
+    // obj.xxx="xxx"
+    // obj.name="我改1"
+    // delete obj.age
+    // console.log(obj)
+
+    // //seal: 不允许新增，也不允许删除,可以修改
+    // Object.seal(obj)
+    // obj.ad="dadada"
+    // delete obj.tel
+    // obj.name ="我改2"
+    // console.log(obj)
+
+    //freeze： 不允许新增，也不允许删除和修改
+    Object.freeze(obj)
+    obj.daada="51616"
+    delete obj.tel
+    obj.name ="我改3"
+    console.log(obj)
+
+    
+    //可以使用isExtensible, isSealed, isFrozen来判断当处处理如个保护状态
+    console.log(Object.isFrozen(obj))
+</script>

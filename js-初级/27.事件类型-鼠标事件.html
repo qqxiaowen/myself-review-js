@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 200px; height: 200px; background-color: yellowgreen;"></div>
+</body>
+<script>
+    let oDiv = document.getElementsByTagName("div")[0];
+    //点击事件
+    oDiv.onclick =() =>console.log("我是点击事件")
+    //鼠标悬停
+    oDiv.onmouseover = () => console.log("我是鼠标悬停事件")
+    //鼠标离开
+    oDiv.onmouseout =() => console.log("我是鼠标离开事件")
+    //鼠标按下
+    oDiv.onmousedown=()=> console.log("我是鼠标按下事件")
+    //鼠标抬起
+    oDiv.onmouseup=() =>console.log("我是鼠标抬起事件")
+    //鼠标移动
+    oDiv.onmousemove=()=>console.log("我是鼠标移动事件")
+</script>
+</html>

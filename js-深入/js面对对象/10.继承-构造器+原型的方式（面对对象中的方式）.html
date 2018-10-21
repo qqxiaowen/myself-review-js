@@ -1,0 +1,32 @@
+<script>
+
+    //首先创建一个构造器
+    function NBACreate(name, age ,height){
+        this.name = name,
+        this.age =age,
+        this.height =height;
+    }
+    NBACreate.prototype.say =function(){
+        console.log(`我是${this.name},今年${this.age}岁了。`)
+    }
+
+    var x1 =new NBACreate("小明","22","171")
+    console.log(x1)
+    x1.say();
+
+    // 创建一个MVP构造器，继承NBACreate中的属性
+    function MVP(name,age,height,year){
+        // 使用call去借用NBACreate的方法
+        NBACreate.call(this,name,age,height),
+        // 再加上自己特有的属性
+        this.year = year
+    }
+    MVP.prototype.say =function(){
+        console.log(`我是${this.name}，我是${this.year}年的mvp哦`)
+    }
+
+    // 调用
+    var mvp1 = new MVP("小明","22","171","2018")
+    console.log(mvp1);
+    mvp1.say();
+</script>

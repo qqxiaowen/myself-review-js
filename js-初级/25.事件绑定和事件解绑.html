@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我弹窗</button>
+    <button>点我解绑第一个事件</button>
+</body>
+<script>
+    let oBtn = document.getElementsByTagName('button');
+
+    //定义一个函数 
+    function jia(){
+        alert("11")
+    }
+    //dom2中的事件绑定
+    oBtn[0].addEventListener("click",jia);
+    oBtn[0].addEventListener("click",()=>{
+        alert("22")
+    })
+    //解绑第一个事件(解绑事件不能用无参函数，只能用带参函数)
+    oBtn[1].onclick=function(){
+        oBtn[0].removeEventListener("click",jia)
+    }
+</script>
+</html>

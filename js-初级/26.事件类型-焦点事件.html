@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">    
+</body>
+<script>
+    let oText = document.getElementsByTagName('input')[0];
+
+    //focus是获取焦点事件
+    oText.onfocus= ()=>{
+        console.log("这是获取焦点事件")
+    }
+    //blur是失去焦点事件
+    oText.onblur=() =>{
+        console.log("这是失去焦点事件")
+    }
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        height: 200px;
+        background: yellowgreen;
+    }
+    a{float: right; width: 80px; height: 50px;background-color: #000; color: #fff; text-align: center; text-decoration: none; line-height: 50px; margin: 30px 30px 0 0;}
+</style>
+<body>
+    <div>
+        <a href="#">X</a>
+    </div>
+</body>
+<script>
+    let oDiv =document.getElementsByTagName("div")[0];
+    let oA =oDiv.getElementsByTagName("a")[0];
+
+    oA.addEventListener("click",function(){
+        oDiv.style.display="none"
+    })
+</script>
+</html>

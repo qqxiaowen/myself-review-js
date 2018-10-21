@@ -1,0 +1,16 @@
+<script>
+    //map类似于对象，里面存放也是键值对，区别在于：对象中的键名只能是字符串，如果使用map，它里面的键可以是任意值
+    // 创建一个map，无语法糖
+    var m =new Map();
+    // 创建map给map赋值时，不能直接放数据，也不嫩放对象和数组，要如下：
+    var m1 = new Map([
+        ["abc","hellow"],
+        ["xxx","word"]
+    ]);
+    console.log(m1)
+    //可以使用set方法往其加入数据
+    m1.set("hasa","yasuo")
+    m1.set([1,2,3],{})
+    console.log(m1)
+
+</script>

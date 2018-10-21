@@ -1,0 +1,14 @@
+<script>
+    function f(){
+        console.log("f......")
+        console.log(this)
+    }
+   console.log(f())
+console.log("...............")
+    function x(){
+        console.log("f......")
+        console.log(this)
+    }
+    console.log(new x())
+    //会返回x()
+</script>

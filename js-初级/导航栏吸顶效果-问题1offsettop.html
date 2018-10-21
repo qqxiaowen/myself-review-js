@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<style>
+    * { padding: 0; margin: 0;list-style: none;}
+    ul{width: 1000px; height: 60px; line-height: 60px; background-color:yellowgreen; margin: 0 auto;}
+    li{width: 25%; text-align: center; float: left;}
+    body{height: 2000px;}
+    .fixed{ position: fixed;top: 0;left: 0;bottom: 0;}
+    .guanggao{margin-top: 80px;}
+</style>
+</head>
+
+<body>
+    <ul id="list" class="guanggao">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+    </ul>
+</body>
+<script>
+    let oUl =document.getElementById('list');
+    let ulTop = oUl.offsetTop;
+    var ulTop2 = oUl.offsetTop;
+    window.onscroll =function(){
+    //    console.log(oUl.offsetTop);
+    //    console.log(document.body.scrollTop);
+    //    console.log(document.documentElement.scrollTop);
+    // console.log(document.body.scrollTop>oUl.offsetTop);
+        if(document.body.scrollTop>oUl.offsetTop){
+            oUl.className="fixed"
+        }else {
+            oUl.className="guanggao"
+        }
+        console.log("直接打印offsettop:"+oUl.offsetTop);
+        console.log("用let先存入在打印offsettop"+ulTop)
+        console.log("用var先存入在打印offsettop"+ulTop2)
+    }
+</script>
+</html>

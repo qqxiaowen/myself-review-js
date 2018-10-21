@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <div style="width: 200px; height: 200px; margin-left: 100px; background: yellowgreen;"></div>
+</body>
+<script>
+    var oDiv =document.getElementsByTagName('div')[0];
+    oDiv.onclick =function(x){
+        var shijian = x || window.event; //window.event 是兼容ie浏览器的
+        //打印出事件对象的值
+        console.log(shijian);
+        //事件的源头
+        console.log(shijian.target)
+        //事件的类型
+        console.log(shijian.type)
+        //鼠标的x坐标，相对于整个视口（浏览器）是说
+        console.log(shijian.clientX)
+        //鼠标的y坐标，相对于整个视口是说
+        console.log(shijian.clientY)
+    }
+</script>
+</html>

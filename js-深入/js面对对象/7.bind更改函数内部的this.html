@@ -1,0 +1,12 @@
+<script>
+    var name = "window 的name"
+    var obj={name:"obj自己的name"}
+    function f(){
+        console.log(this.name)
+    }
+    f()
+    f.bind(obj)()
+
+    //bind改变this后， 不再执行函数
+    //call和apply改变this后，执行函数
+</script>

@@ -1,0 +1,14 @@
+<script>
+    'use strict'
+    function f(a,b){
+        console.log(a,b)
+        console.log(arguments[0],arguments[1])
+        //改变arguments的值
+        arguments[0] =1111;
+        arguments[1] =3333;
+        console.log(a,b)
+        console.log(arguments[0],arguments[1])
+        // 打印发现 a，b的值并没有变，arguments和形参不再一一对应
+    } 
+    f(2,4)
+</script>

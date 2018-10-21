@@ -1,0 +1,14 @@
+<script>
+    //使用call
+    function f(x, y) {
+        console.log(x, y)
+        console.log(this)
+    }
+    var obj = { name: "xiaoming" }
+    f.call(obj, 10, 10)
+    //使用apply
+    f.apply(obj, [20, 20])
+
+// apply 与 call 的功能完全一样，不同的是使用call时，它的参数直接写，用，分开
+// apply 的参数需要用[]包括。
+</script>

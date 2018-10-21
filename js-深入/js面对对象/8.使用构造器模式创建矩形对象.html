@@ -1,0 +1,29 @@
+<script>
+//     function createRect(w,h){
+//     this.widht = w;
+//     this.height = h;
+//     this.getMianji=function(){
+//         return this.widht * this.height
+//     }
+// }
+// //getMianji造成内部空间的浪费，将其写出
+
+function createRect(w,h){
+    this.widht = w;
+    this.height = h;
+    this.getMianji=ff
+}
+var ff=function(){
+    return this.widht * this.height
+}
+//将函数写在外面，没有彻底的封装，故改为原型模式
+
+
+var r1= new createRect(2,4);
+console.log(r1);
+console.log(r1.getMianji())
+
+var r1= new createRect(7,5);
+console.log(r1);
+console.log(r1.getMianji())
+</script>

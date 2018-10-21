@@ -1,0 +1,14 @@
+<body>
+    <div></div>
+</body>
+<script>
+        // 创建一个h1节点
+        let h1 = document.createElement('h1');
+        let div=document.getElementsByTagName('div')[0];
+        //将节点放如dom树中 （这样方法是就将节点放入父级节点（body）中的最后一个）
+        // document.body.appendChild(h1);
+        // console.log(h1);
+        //这种方法是将及诶点放入父级节点（body）中的div节点之前
+        document.body.insertBefore(h1,div)
+        console.log(h1)
+</script>

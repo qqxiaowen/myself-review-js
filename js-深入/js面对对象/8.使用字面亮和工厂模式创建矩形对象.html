@@ -1,0 +1,30 @@
+<script>
+// 使用字面亮方式
+// var rect = {
+//     width:10,
+//     height:15,
+//     getMianJi:function(){
+//         return this.width * this.height;
+//     }
+// }
+
+// console.log(rect.getMianJi())
+
+// 使用工厂模式 批量创建
+function createRect(w,h){
+    var obj ={};
+    obj.widht = w;
+    obj.height = h;
+    obj.getMianji=function(){
+        return this.widht * this.height
+    }
+    return obj;
+}
+var r1=createRect(2,4);
+console.log(r1);
+console.log(r1.getMianji())
+
+var r1=createRect(7,5);
+console.log(r1);
+console.log(r1.getMianji())
+</script>

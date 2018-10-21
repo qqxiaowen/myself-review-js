@@ -1,0 +1,127 @@
+<style>
+        *{ margin: 0; padding: 0; list-style: none;}
+        .newList{ position: relative; width: 500px; height:80px; border: 1px solid red; background: yellowgreen; margin:50px auto; overflow: hidden;}
+    
+    </style>
+    <div class="newList" id="newList1">
+        <div class="new_body">
+            <ul>
+                <li>111111111111</li>
+                <li>222222222222</li>
+                <li>333333333333</li>
+                <li>444444444444</li>
+                <li>555555555555</li>
+                <li>666666666666</li>
+                <li>777777777777</li>
+                <li>888888888888</li>
+                <li>999999999999</li>
+            </ul>
+        </div>
+    </div>
+    <div class="newList" id="newList2">
+        <div class="new_body">
+            <ul>
+                <li>111111111111</li>
+                <li>222222222222</li>
+                <li>333333333333</li>
+                <li>444444444444</li>
+                <li>555555555555</li>
+                <li>666666666666</li>
+                <li>777777777777</li>
+        </div>
+    </div>
+        <div class="newList" id="newList3">
+            <div class="new_body">
+                <ul>
+                    <li>111111111111</li>
+                    <li>222222222222</li>
+                    <li>333333333333</li>
+                    <li>444444444444</li>
+                    <li>555555555555</li>
+                </ul>
+            </div>
+        </div>
+    <script>
+        // //这是最初的js
+        // var newList =document.getElementById('newList1');
+        // var oUl =newList.getElementsByTagName('ul')[0];
+        // var oLI =oUl.getElementsByTagName('li');
+        // var oUlHeight = oUl.offsetHeight;
+        // console.log("1: "+oUlHeight)
+        // oUl.innerHTML=oUl.innerHTML +oUl.innerHTML
+        // console.log("2: "+oUl.offsetHeight)
+        // oUl.style.position ="absolute";
+        // oUl.style.top =0
+        // setInterval(function(){
+    
+        //     // var top1 =Math.abs(parseInt(oUl.style.top)) 
+        //     var top1 = parseInt(oUl.style.top) // 转为number类型
+        //     // var top1  = oUl.style.top   // string类型 
+    
+        //     if(-top1>=oUlHeight){
+        //         oUl.style.top ="0"
+        //         // alert(1)
+        //     }else{
+        //         top1 = top1 -4
+        //         oUl.style.top = top1+'px'
+        //     }
+        // },100)
+
+
+        // // 封装（自变量模式）
+        // var createNew=function(newid){
+        //     var newList =document.getElementById(newid);
+        //     var oUl =newList.getElementsByTagName('ul')[0];
+        //     var oLI =oUl.getElementsByTagName('li');
+        //     var oUlHeight = oUl.offsetHeight;
+        //     console.log("1: "+oUlHeight)
+        //     oUl.innerHTML=oUl.innerHTML +oUl.innerHTML
+        //     console.log("2: "+oUl.offsetHeight)
+        //     oUl.style.position ="absolute";
+        //     oUl.style.top =0
+        //     setInterval(function(){
+        //         // var top1 =Math.abs(parseInt(oUl.style.top)) 
+        //         var top1 = parseInt(oUl.style.top) // 转为number类型
+        //         // var top1  = oUl.style.top   // string类型 
+        //         if(-top1>=oUlHeight){
+        //             oUl.style.top =-3
+        //         }else{
+        //             top1 = top1 -2
+        //             oUl.style.top = top1+'px'
+        //         }
+        //     },100)
+        // }
+    
+        // createNew('newList1')
+        // createNew('newList2')
+        // createNew('newList3')
+
+        //面对对象模式
+        function createNew(newid){
+            this.newList =document.getElementById(newid);
+            this.oUl =this.newList.getElementsByTagName('ul')[0];
+            this.oLI =this.oUl.getElementsByTagName('li');
+            this.oUlHeight = this.oUl.offsetHeight;
+            this.oUl.innerHTML+=this.oUl.innerHTML;
+            this.oUl.style.position ="absolute";
+            this.oUl.style.top =0;
+            this.start();
+            
+        }
+        createNew.prototype.start =function(){
+            var that =this;
+            setInterval(function(){
+                that.top1 = parseInt(that.oUl.style.top) // 转为number类型
+                if(-that.top1>=that.oUlHeight){
+                    that.oUl.style.top =-3
+                }else{
+                    that.top1 -=2
+                    that.oUl.style.top = that.top1+'px'
+                }
+            },100)
+        }
+    
+        new createNew('newList1')
+        new createNew('newList2')
+        new createNew('newList3')
+    </script>

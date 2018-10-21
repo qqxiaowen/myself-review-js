@@ -1,0 +1,8 @@
+<script>
+    var arr =[1,2,3,4,7]
+    for ( i in arr){
+        console.log(i)
+    };
+    console.log(Object.getOwnPropertyDescriptor(arr,"length"))
+    // 在浏览器控制台可以看到它的enumerable的属性为false 不能遍历。
+</script>

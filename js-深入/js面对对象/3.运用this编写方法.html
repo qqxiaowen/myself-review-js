@@ -1,0 +1,46 @@
+<script>
+// var obj1 ={
+//     name :"zzzz11",
+//     say:function(){
+//         console.log(`我是${this.name}`)
+//     }
+// }
+// var obj2 ={
+//     name :"zzzz22",
+//     say:function(){
+//         console.log(`我是${this.name}`)
+//     }
+// }
+// obj1.say()
+// obj2.say()
+
+
+//将say方法提取
+// var say=function(){
+//     console.log(`我是${this.name}`)
+// }
+// var obj1 ={
+//     name :"zzzz11",
+//     say
+// }
+// var obj2 ={
+//     name :"zzzz22",
+//     say
+// }
+// obj1.say()
+// obj2.say()
+// 两个对象的say方法都是一样的，都指向saysay=function(){console.log(`我是${this.name}`)}
+// console.log(obj1.say===obj2.say)
+
+
+//可以用call去调用，如下：
+var say=function(){console.log(`我是${this.name}`)}
+var obj1 ={
+    name :"zzzz11",
+}
+var obj2 ={
+    name :"zzzz22",
+}
+say.call(obj1)
+say.call(obj2)
+</script>

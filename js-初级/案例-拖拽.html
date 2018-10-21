@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #list{ left: 80px; top: 40px; 
+        width: 200px; height: 200px; position: absolute;  background: yellowgreen}
+</style>
+<body>
+    <div id="list">
+    </div>    
+</body>
+<script>
+    let oDiv =document.getElementById('list');
+    var oldMouseX=null;
+    oDiv.onmousedown=function(shijian){
+        //得到点击时的鼠标的横纵坐标
+        oldMouseX=shijian.clientX;
+        oldMouseY = shijian.clientY;
+        // 得到点击时盒子距离视口的尺寸
+         let oldboxL = this.offsetLeft
+         let oldboxT = this.offsetTop
+        document.onmousemove=function(shijian2){
+            //计算中鼠标移动的横纵坐标
+            var zuobiaoX = shijian2.clientX-oldMouseX;
+            var zuobiaoY = shijian2.clientY-oldMouseY;
+            //将坐标+原本的元素尺寸
+            var l = zuobiaoX +oldboxL
+            var t = zuobiaoY +oldboxT
+            console.log("lt:"+l,t)
+            oDiv.style.left=l +"px";
+            oDiv.style.top=t +"px";
+        }
+
+        document.onmouseup=function(){
+            document.onmousemove = null;
+        }
+    }
+</script>
+</html>

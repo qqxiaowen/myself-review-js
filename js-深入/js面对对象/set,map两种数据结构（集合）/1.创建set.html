@@ -1,0 +1,42 @@
+<script>
+    // set只能new， 没有语法糖
+    //set和数组中有区别，set中的值是唯一的，数组中的值是不唯一
+    var s1 =new Set();
+    // set里只能放[],不能直接放数字和{}
+    var s2 =new Set([1,2,"true"])
+    console.log(s1)
+    console.log(s2)
+    // 可以使用add()去添加
+    s1.add(1)
+    s1.add(3)
+    s1.add(5)
+    s1.add(7)
+    console.log(s1)
+    // set 是伪数组
+    console.log(Array.isArray(s1))
+    //可以用from 或...将其变为数组
+    console.log(Array.isArray(Array.from(s1)))
+    console.log(Array.isArray([...s1]))
+
+
+    //set 的遍历
+    console.log('---------')
+    s1.forEach(item=>{
+        console.log(item)
+    })
+
+    console.log('---------')
+    for( item in s1){
+    //遍历出对象f的属性名
+        console.log(item);
+        //遍历出对象f的属性值
+        console.log(f[item])
+        //使用for in遍历不出
+    }
+
+    console.log('---------')
+    for (var i of s1){
+        console.log(i)
+    }
+
+</script>

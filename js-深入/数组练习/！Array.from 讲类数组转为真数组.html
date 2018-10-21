@@ -1,0 +1,10 @@
+<div></div>
+<script>
+    var lis = document.getElementsByTagName("div");
+    console.log(Array.isArray(lis)); //打印值是false
+
+    var  xx =Array.from(lis);
+    console.log(Array.isArray(xx))
+    console.log(Array.isArray(lis)); 
+    //对原类数组无影响
+</script>

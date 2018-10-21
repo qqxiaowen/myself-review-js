@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="list">
+        <p>
+            <a href="">123321</a>
+        </p>
+    </div>
+</body>
+<script>
+    var oDiv = document.getElementById('list');
+    var oP =oDiv.getElementsByTagName('p')[0];
+    var oA =oDiv.getElementsByTagName('a')[0];
+    //默认触发是 a>p>div 既冒泡
+    oDiv.onclick=function(){ alert("div")}
+    oP.onclick=function(){alert("P")}
+    //调用最里面的事件源的事件对象的stopPropagation方法，取消冒泡
+    oA.onclick=function(e){
+        alert("a");
+        var shijian =  e ||  window.event;
+        e? shijian.stopPropagation() : shijian.cancelBubble="true";
+        // e.stopPropagation()
+    }
+</script>
+
+</html>

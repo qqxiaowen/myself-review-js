@@ -1,0 +1,34 @@
+<script>
+    //找出元素在数组中的索引，没有的话就返回了-1
+     Array.prototype.getEl =function(x){
+        for(var i=0; i<this.length; i++){
+            if(x == this[i]){
+                return i;
+            }
+        }
+        return -1;
+    }
+    var arr2 =[1,3,5,7,88,99,44]
+   //创建删除方法
+   Array.prototype.deleteEl =function(x){
+       //先调用getEL方法，看数组中是否存在这个元素
+       var index = this.getEl(x)
+        if(index != -1){
+            //index不等于-1，既元素存在数组中时，调用splice方法，删除这个索引开始的1个元素
+            //返回值是删除的元素
+           return this.splice(index,1)
+        }else{
+           return "该元素不存在"
+        }
+   }
+
+   var arr=[1,3,5,7,9,11,77]
+   console.log(arr)
+   console.log(arr.deleteEl(11))
+   console.log(arr)
+
+   console.log("---------------")
+   console.log(arr2)
+   console.log(arr2.deleteEl(44))
+   console.log(arr2)
+</script>

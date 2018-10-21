@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1></h1>
+</body>
+<script>
+    let oH1 = document.getElementsByTagName('h1')[0];
+
+
+    setInterval(function () {
+        let time = new Date();
+        let y = time.getFullYear();
+        let m = time.getMonth()+1;
+        let d = time.getDate();
+        let h = time.getHours();
+        let i = time.getMinutes();
+        let s = time.getSeconds();
+        oH1.innerHTML = `现在是北京时间${y}年${m}月${d}日 ${h}:${i}:${s} `
+    }, 1000)
+</script>
+
+</html>

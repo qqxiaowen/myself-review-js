@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a id="item" href="baidu.com">百度一下！！！！</a>
+</body>
+<script>
+    let oA =document.getElementById('item');
+    console.log(oA);
+    console.log(oA.nodeType);//打印a的节点类型 （元素节点）
+    console.log(oA.firstChild)//打印a里面的第一个孩子 （文本）
+    console.log(oA.firstChild.nodeType);//打印出a里第一个孩子的节点类型 (文本节点)
+</script>
+</html>

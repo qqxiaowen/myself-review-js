@@ -1,0 +1,15 @@
+<style>
+    *{padding: 0; margin: 0;}
+    div{ height: 50px; border: 1px solid red; margin-bottom: 10px;}
+    p{ background: yellowgreen; line-height: 50px;}
+</style>
+<div>
+    <p>1234</p>
+</div>
+<script>
+    let div = document.getElementsByTagName('div')[0];
+    let ar1 = div.cloneNode(false); //浅拷贝 只拷贝自身
+    let ar2 = div.cloneNode(true);//深拷贝 拷贝所有，包含子元素
+    console.log(ar1);
+    console.log(ar2);
+</script>

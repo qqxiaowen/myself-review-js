@@ -1,0 +1,50 @@
+<style>
+    #box{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: absolute;
+        left: 300px;
+        top: 100px;
+    }
+</style>
+
+
+<body>
+    
+    <button>向右<tton>
+    <button>向左<tton>
+    <button>top<tton>
+    <div id="box"></div>
+</body>
+
+<script>
+    let btns = document.getElementsByTagName("button")
+    let div = document.getElementById("box")
+    var t1 = null ;
+
+    btns[0].onclick = function(){
+        clearInterval(t1)
+        t1 = setInterval(()=>{
+            var x = div.offsetLeft;
+            console.log(x)
+            div.style.left = x+5+"px";
+            div.style.backgroundColor="green"
+        },50)
+    }
+    btns[1].onclick = function(){
+        clearInterval(t1)
+        t1 = setInterval(()=>{
+            var x = div.offsetLeft;
+            console.log(x)
+            div.style.left = x-5+"px";
+            div.style.backgroundColor="gold"
+        },50)
+    }
+    btns[2].onclick = function(){
+        div.style.backgroundColor="white"
+        clearInterval(t1)
+        
+    }
+
+</script>

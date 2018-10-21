@@ -1,0 +1,25 @@
+<script>
+    function createRect(w, h) {
+        //为了防止有些人不加new，而去用这个函数，加入以下代码
+        // instanceof 是一个运算符, 用来判断 this这个对象是不是createRect的实例
+        if(!(this instanceof createRect)){
+            return new createRect(w,h)
+        }
+        this.widht = w;
+        this.height = h;
+    }
+
+    createRect.prototype ={
+        construcotr:createRect,
+        getMianji:function () {return this.widht * this.height},
+        getZhouChang:function(){return  2*(this.widht + this.height)}
+    }
+    // 调用
+    var r1 = new createRect(2, 4);
+    console.log(r1);
+    console.log(r1.getMianji(),r1.getZhouChang())
+
+    var r2 =  createRect(7, 5);
+    console.log(r2);
+    console.log(r2.getMianji(),r1.getZhouChang())
+</script>

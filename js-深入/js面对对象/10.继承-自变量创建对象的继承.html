@@ -1,0 +1,35 @@
+<script>
+var daMing ={
+    name:"daming",
+    friends:["xiaosan","xiaoming"],
+    card:{
+        ka1: "ka1",
+        ka2: "ka2"
+    },
+    say:function(){
+        console.log(`我是${name},啦啦啦`)
+    }
+}
+// 编写一个继承函数
+function kaobei(oldobj){
+    var newobj={}
+    for(x in oldobj){
+        newobj[x] = oldobj[x]
+    }
+    return newobj;
+}
+
+console.log(daMing)
+// 定义一个xiaoMing 去继承daMing
+var xiaoMing = kaobei(daMing)
+console.log(xiaoMing)
+//此时通过自己写的kaobei函数就将daMing的属性方法给继承了，但是存在引用数据类型浅拷贝问题:
+console.log("------")
+
+xiaoMing.name="xiaoming"
+xiaoMing.friends.push("zzzz")
+console.log(daMing)
+console.log(xiaoMing)
+//打印发现daMing中的firends也跟着变了，但是name没变；因为name是基本数据类型，存在栈区，friends是引用数据类型，存在堆区，栈区保存的是它指向堆区的存储地址
+
+</script>

@@ -1,0 +1,30 @@
+<script>
+    var obj1 ={}
+    var obj2={
+        name:"obj2的名字",
+        age:"222",
+        cad:['cad1','cad2']
+    }
+    var obj3 ={
+        name:"obj3的名字"
+    }
+    Object.assign(obj1,obj2,obj3)
+    console.log(obj1) //{name: "obj3的名字", age: "222"}
+    
+    //第一个参数是目标对象，assign这个方法把其它的参数中的属性全部加在第一个参数身上。
+    //第一个参数在属性复制过程中，可以会被修改，后面的会覆盖前面的属性
+    //assign这个方法的返回值就是第一个参数的引用，也就是返回了第一个参数。
+    //assign这个方法会把原型上面的发展也拷贝了。
+    //assign不能拷贝继承过来的属性
+    //assign也不拷贝不可枚举的属性
+
+    //assign 是浅拷贝
+    console.log("----")
+    console.log(obj2)
+    console.log(obj1)
+    console.log("修改obg1中的cad")
+    obj1.cad.push('nihao')
+    console.log(obj2)
+    console.log(obj1)
+    //obj1和obj2中的cad后面都加了nihao
+</script>

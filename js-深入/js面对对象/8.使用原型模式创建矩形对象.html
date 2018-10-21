@@ -1,0 +1,43 @@
+<script>
+    function createRect(w, h) {
+        this.widht = w;
+        this.height = h;
+    }
+
+    // 编写函数方法1
+    // createRect.prototype.getMianji = function () {
+    //     return this.widht * this.height
+    // }
+    // //再写一个周长的函数方法
+    // createRect.prototype.getZhouChang =function(){
+    //     return  2*(this.widht + this.height)
+    // }
+
+    //编写函数方法2
+    // 将上面的函数写入一个对象，再传入prototype中
+    createRect.prototype ={
+        construcotr:createRect,
+        getMianji:function () {
+        return this.widht * this.height
+        },
+        getZhouChang:function(){
+        return  2*(this.widht + this.height)
+        }
+    }
+    //注：直接用createRect.prototype 会将 prototype中的原有属性给覆盖掉，既然人为没有给里面其他的东西，
+    // 但是仍然有一个construcotr 属性 （表示是那个函数创建的这个对象），故将其加之。
+    
+
+
+
+
+
+    // 调用
+    var r1 = new createRect(2, 4);
+    console.log(r1);
+    console.log(r1.getMianji(),r1.getZhouChang())
+
+    var r2 = new createRect(7, 5);
+    console.log(r2);
+    console.log(r2.getMianji(),r1.getZhouChang())
+</script>

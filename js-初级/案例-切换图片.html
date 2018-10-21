@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{padding: 0;margin: 0;}
+    ul{ margin: 50px auto 10px;  width: 500px;}
+    ul:after{ content: ""; display: block; clear: both;}
+    li{ float: left; width: 100px; height: 70px; margin-right: 20px; list-style: none;}
+    li:last-child{margin-right: 0;}
+    li img{ width: 100px; height: 70px;}
+    .bigbox img{ width: 400px; height: 300px;}
+    .bigbox p{text-indent: 100px;}
+</style>
+<body>
+    <ul id="list">
+        <li><img src="./img/1.jpg" alt=""></li>
+        <li><img src="./img/2.jpg" alt=""></li>
+        <li><img src="./img/3.jpg" alt=""></li>
+        <li><img src="./img/4.jpg" alt=""></li>
+    </ul>
+    <div class="bigbox">
+        <img id="oImg" src="./img/placeholder.png" alt="">
+        <p>111</p>
+    </div>
+</body>
+<script>
+    let oLi = document.getElementsByTagName('li');
+    let oImg =document.getElementById('oImg');
+    let oP =document.getElementsByTagName('p')[0];
+
+    var imgArr =["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"];
+    var pArr =["111","222","333","444"];
+    for( var i=0;i<oLi.length; i++){
+        oLi[i].index= i;
+        oLi[i].onclick= function(){
+           oImg.src=imgArr[this.index];
+            oP.innerHTML=pArr[this.index];
+        }
+    }
+</script>
+</html>

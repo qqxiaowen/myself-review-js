@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #list{
+        width: 400px;
+        height: 400px;
+        background: yellowgreen;
+        position: relative;
+    }
+    #one{
+        background: yellow;
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        margin-left: 40px;
+        left: 20px;
+        top:50%
+    }
+</style>
+<body>
+    <div id="list">
+        <div id="one">123</div>
+    </div>
+</body>
+<script>
+    let od1 = document.getElementById('list');
+    let od2 = document.getElementById('one');
+    console.log(od2.offsetLeft)
+    console.log(od2.offsetTop)
+
+</script>
+</html>

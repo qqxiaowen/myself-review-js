@@ -1,0 +1,18 @@
+<style>
+    span{
+        display: block;
+        height: 40px;
+        background-color: yellowgreen;
+    }
+</style>
+<div>
+    <h1>我是标题</h1>
+    <p>我是内容</p>
+</div>
+<script>
+    let oDiv = document.getElementsByTagName('div')[0];
+    let oP = oDiv.getElementsByTagName('p')[0];
+    //先创建一个节点
+    let oSpan = document.createElement('span');
+    oDiv.replaceChild(oSpan,oP)
+</script>

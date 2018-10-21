@@ -1,0 +1,133 @@
+<style>
+        *{padding: 0; margin: 0; list-style: none;}
+        .tab1{margin: 50px auto; width: 600px; height: 400px;text-align: center;}
+        .tab1 ul{ overflow: hidden; height: 50px; line-height: 50px;background:blue}
+        .tab1 ul li{ float: left;  width:25% ;}
+        .tab1 ul  .active{ background: #666; color: black;}
+        .tab1 .tabBody{height: 350px; line-height: 350px; background:yellowgreen;}
+        .tab1 .tabBody div{ display: none; font-size: 40px;}
+        .tab1 .tabBody .active {display: block;}
+    </style>
+    <!-- 第一个 -->
+    <div class="tab1" id="tab1">
+        <ul>
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+            <li>选项4</li>
+        </ul>
+        <div class="tabBody">
+            <div class="active">我是选项一中的内容</div>
+            <div>我是选项二中的内容</div>
+            <div>我是选项三中的内容</div>
+            <div>我是选项四中的内容</div>
+        </div>
+    </div>
+    <!-- 第二个 -->
+    <div class="tab1" id="tab2">
+        <ul>
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+            <li>选项4</li>
+        </ul>
+         <div class="tabBody">
+            <div class="active">我是选项一中的内容</div>
+            <div>我是选项二中的内容</div>
+            <div>我是选项三中的内容</div>
+            <div>我是选项四中的内容</div>
+        </div>
+    </div>
+    <!-- 第三个 -->
+    <div class="tab1" id="tab3">
+        <ul>
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+            <li>选项4</li>
+        </ul>
+        <div class="tabBody">
+            <div class="active">我是选项一中的内容</div>
+            <div>我是选项二中的内容</div>
+            <div>我是选项三中的内容</div>
+            <div>我是选项四中的内容</div>
+        </div>
+    </div>
+    
+    <script>
+        // //这是最初的js
+        // var bigDiv =document.getElementById('tab1');
+        // var oLi =bigDiv.getElementsByTagName('li');
+        // var tabBody =bigDiv.getElementsByTagName('div')[0];
+        // var oDiv =tabBody.getElementsByTagName('div');
+    
+        // for(var i=0; i<oLi.length; i++){
+        //     oLi[i].index = i;
+        //     oLi[i].onclick =function(){
+        //         //清空样式
+        //         for(var j=0;j<oLi.length;j++){
+        //             oLi[j].className="";
+        //             oDiv[j].style.display = 'none'
+        //         }
+        //         //赋予样式
+        //         this.className="active"
+        //         oDiv[this.index].style.display ="block"
+        //     }
+        // }
+    
+        // //如果我们页面中有多个tab时，需要封装代码(自变量工厂模式)
+        // var createTab = function(tabId){
+        //     var bigDiv =document.getElementById(tabId);
+        //     var oLi =bigDiv.getElementsByTagName('li');
+        //     var tabBody =bigDiv.getElementsByTagName('div')[0];
+        //     var oDiv =tabBody.getElementsByTagName('div');
+    
+        //     for(var i=0; i<oLi.length; i++){
+        //         oLi[i].index = i;
+        //         oLi[i].onclick =function(){
+        //             //清空样式
+        //             for(var j=0;j<oLi.length;j++){
+        //                 oLi[j].className="";
+        //                 oDiv[j].style.display = 'none'
+        //             }
+        //             //赋予样式
+        //             this.className="active"
+        //             oDiv[this.index].style.display ="block"
+        //         }
+        //     }
+        // }
+    
+        // createTab('tab1')
+        // createTab('tab2')
+        // createTab('tab3')
+        // 对面对象方式 
+        var createTab =function(tabId){
+           this.bigDiv =document.getElementById(tabId);
+           this.oLi =this.bigDiv.getElementsByTagName('li');
+           this.tabBody =this.bigDiv.getElementsByTagName('div')[0];
+           this.oDiv =this.tabBody.getElementsByTagName('div');
+           this.diaoyong(this);
+        }
+        createTab.prototype.diaoyong =function(x){
+            //把对象存入that中，便于下面的点击事件使用
+            var that =this
+            for(var i=0; i<this.oLi.length;i++){
+                this.oLi[i].index = i;
+                this.oLi[i].onclick =function(){
+                    //清空样式
+                    for(var j=0;j<that.oLi.length;j++){
+                        that.oLi[j].className="";
+                        that.oDiv[j].style.display = 'none'
+                    }
+                    //赋予样式
+                    this.className="active"
+                    that.oDiv[this.index].style.display ="block"
+                }
+            }
+        }
+        // var t1 = new createTab('tab1');
+        // console.log(t1)
+        new createTab('tab1')
+        new createTab('tab2')
+        new createTab('tab3')
+    </script>

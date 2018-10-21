@@ -1,0 +1,36 @@
+
+<style>
+    body{
+        height: 2000px;
+    }
+    div{
+        width: 200px;
+        height: 200px;
+        background-color:red;
+        overflow: auto;
+    }
+    p{
+        width: 100px;
+        height: 300px;
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+<script>
+    // console.log(document.body.scrollTop);
+    // console.log(document.documentElement.scrollTop)
+
+
+    let oDiv = document.getElementsByTagName('div')[0];
+    let oP =document.getElementsByTagName('p')[0];
+    //scollTop应该测试最外层的盒子 既overflow所在的盒子
+    oDiv.onclick =function(){
+    console.log("p的"+oP.scrollTop);
+    console.log("div的"+oDiv.scrollTop) //有效
+
+    }
+</script>
